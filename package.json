@@ -1,0 +1,13 @@
+{
+  "name": "node-db-init-sqlite3",
+  "version": "0.0.0",
+  "description": "Initialize/repair/manage sqlite3 databases based on a set of configuration files. Speed up development by spending less time with the database and more time on the code.",
+  "main": "index.js",
+  "repository": "git@github.com:lordcrekit/node-db-init-sqlite3.git",
+  "author": "William Norman <lordcrekit@gmail.com>",
+  "license": "LGPL-3.0",
+  "dependencies": {
+    "node-paternal": "^1.0.0",
+    "sqlite3": "^3.1.8"
+  }
+}
