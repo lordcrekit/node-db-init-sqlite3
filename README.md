@@ -19,12 +19,9 @@ There are two steps: building the database in your node project, and writing the
     dbinit.initialize(
         DATABASE_PATH,          // File to save sqlite3 database to
         PATH_TO_CONFIGURATION,  // Configuration directory
-        CALLBACK_FUNCTION)      // Called after initialization
-    ```
-    * Note that `initialize()` uses the callback pattern.
- * And then fetch the database with
-    ```javascript
-    const db = dbinit.database
+        function(err, database){
+          /* do something with the database */
+        })
     ```
  
 ## Writing the configuration

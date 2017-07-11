@@ -6,11 +6,6 @@ const seriesPattern = require('node-paternal').seriesPattern
 var messageListeners = []
 
 /**
- * The database.
- */
-var db = null
-
-/**
  * Add a new listener to the message listeners. They will be fed messages
  * relating to database initialization.
  *
@@ -33,9 +28,7 @@ const addListener = function (listener) { messageListeners.push(listener) }
  */
 const init = function (dbFile, configDir, cb) {
   report('Initializing database...')
-  if (!db) {
-    db = new sqlite3.Database('./.database')
-  }
+  var db = new sqlite3.Database('./.database')
 
   /**
    *
@@ -72,8 +65,6 @@ const init = function (dbFile, configDir, cb) {
     }
     query += ') VALUES ' + appendix + ');'
 
-    report(query)
-    report(variables)
     db.run(query, variables, function() {cb();})
   }
 
@@ -143,8 +134,8 @@ const init = function (dbFile, configDir, cb) {
         }
 
         seriesPattern(finderFunctions, function() {
-          if (err) { throw err; }
-          seriesPattern(functions, cb)
+          if (err) { cb(err); }
+          seriesPattern(functions, function() {cb(null, db);})
         })
       })
   })
@@ -164,7 +155,6 @@ function report (message) {
 }
 
 module.exports = {
-  database: db,
   addMessageListener: addListener,
   initialize: init
 }
