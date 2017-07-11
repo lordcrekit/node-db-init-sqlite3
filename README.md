@@ -22,7 +22,7 @@ There are two steps: building the database in your node project, and writing the
     * Note that `initialize()` uses the callback pattern.
  
 ## Writing the configuration
- * The configuratino is a directory containing several things:
+ * The configuration is a directory containing several things:
     * A `tables.json` file.
     * For each table, a `TABLENAME.txt` file.
     
