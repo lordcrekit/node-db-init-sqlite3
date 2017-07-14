@@ -1,3 +1,10 @@
+/**
+ * Copyright 2017 Michigan State University
+ * Distributed under the terms of the GNU General Public License (LGPL)
+ *
+ * @author William A. Norman <norman.william.dev@gmail.com>
+ */
+
 // Libraries
 const sqlite3 = require('sqlite3').verbose()
 const fs = require('fs')
